@@ -2,14 +2,14 @@ import sys
 import os
 from PIL import Image
 
-path = sys.argv[1]
-directory = sys.argv[2]
+image_folder = sys.argv[1]
+new_folder = sys.argv[2]
 
-if not os.path.exists(directory):
-    os.makedirs(directory)
+if not os.path.exists(new_folder):
+    os.makedirs(new_folder)
 
-for filename in os.listdir(path):
+for filename in os.listdir(image_folder):
     if filename.endswith(".jpg"):
-        img = Image.open(os.path.join(path, filename))
-        img.save(os.path.join(directory, filename.replace(".jpg", ".png")))
+        img = Image.open(os.path.join(image_folder, filename))
+        img.save(os.path.join(new_folder, filename.replace(".jpg", ".png")))
     print('all done!')
